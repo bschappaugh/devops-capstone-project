@@ -171,7 +171,6 @@ class TestAccountService(TestCase):
         new_account = response.get_json()
         new_account["name"] = "Something Known"
         response = self.client.put(f"{BASE_URL}/{new_account['id'] + 10}", json=new_account)
-        updated_account = response.get_json()
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
 
     def test_delete_account(self):
